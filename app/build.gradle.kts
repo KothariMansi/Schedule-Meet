@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.example.schedulemeet"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -67,6 +67,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation( "androidx.compose.material3:material3:1.3.1")
+    implementation ("androidx.compose.material3:material3-window-size-class:1.3.1")
+    implementation ("androidx.compose.material3:material3-adaptive-navigation-suite:1.4.0-alpha05")
 
     // material
     implementation("androidx.compose.material:material:1.3.0")
