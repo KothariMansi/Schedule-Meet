@@ -37,6 +37,8 @@ fun PopUpDialog(
     context: Context,
     message: String,
     @DrawableRes image: Int,
+    show: Boolean = false,
+    onConfirm:() -> Unit,
     onDismissRequest:() -> Unit
 ) {
     Dialog(onDismissRequest = { onDismissRequest() }) {
@@ -72,10 +74,23 @@ fun PopUpDialog(
                         colors = ButtonDefaults.buttonColors(containerColor = primaryLight)
                     ) {
                         Text(
-                            text = "Ok",
+                            text = if (show)"Cancel" else "Ok",
                             color = onPrimaryContainerLight
                         )
                     }
+                    if (show) {
+                        Button(
+                            onClick = { onConfirm() },
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = primaryLight)
+                        ) {
+                            Text(
+                                text = "Confirm",
+                                color = onPrimaryContainerLight
+                            )
+                        }
+                    }
+
                 }
             }
         }

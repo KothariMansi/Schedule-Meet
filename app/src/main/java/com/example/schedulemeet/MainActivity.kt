@@ -1,8 +1,10 @@
 package com.example.schedulemeet
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -13,9 +15,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.schedulemeet.presentation.login.LoginScreen
+import com.example.schedulemeet.presentation.schedule.ScheduleScreen
+import com.example.schedulemeet.presentation.summary.SummaryScreen
 import com.example.schedulemeet.ui.theme.ScheduleMeetTheme
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -39,6 +44,7 @@ enum class Destinations{
     SUMMARY
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ScheduleMeetApp() {
     val navController = rememberNavController()
@@ -47,10 +53,10 @@ fun ScheduleMeetApp() {
             LoginScreen(navController)
         }
         composable(Destinations.SCHEDULE.name){
-            Text(text = "SCHEDULE")
+           ScheduleScreen(navController)
         }
         composable(Destinations.SUMMARY.name){
-            Text(text = "SUMMARY")
+            SummaryScreen()
         }
     }
 }

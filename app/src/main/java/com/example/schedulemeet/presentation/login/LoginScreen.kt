@@ -116,7 +116,12 @@ fun LoginScreen(
         )
 
         if (loginState.state) {
-            PopUpDialog(context = LocalContext.current, message = "Wrong Credentials", image = R.drawable.catmakingfun) {
+            PopUpDialog(
+                context = LocalContext.current,
+                message = "Wrong Credentials",
+                image = R.drawable.catmakingfun,
+                onConfirm = {}
+            ) {
                 loginViewModel.updateState(false)
             }
         }
