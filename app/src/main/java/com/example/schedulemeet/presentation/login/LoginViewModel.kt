@@ -18,7 +18,7 @@ class LoginViewModel: ViewModel() {
     }
 
     fun onLoginClick(): Boolean {
-        return uiState.value.username == "mansi" && uiState.value.password == "3456"
+        return uiState.value.username == "Komal" && uiState.value.password == "143"
     }
 
     fun updateState(state: Boolean) {

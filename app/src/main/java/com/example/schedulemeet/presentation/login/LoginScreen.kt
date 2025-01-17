@@ -100,10 +100,15 @@ fun LoginScreen(
             label = {
                 Text(text = "Password")
             },
-            keyboardOptions =  KeyboardOptions(imeAction = ImeAction.Next),
+            keyboardOptions =  KeyboardOptions(imeAction = ImeAction.Done),
             keyboardActions = KeyboardActions(
-                onNext = {
-                    focusManager.moveFocus(FocusDirection.Next)
+                onDone  = {
+                    val check = loginViewModel.onLoginClick()
+                    if (check) {
+                        navController.navigate(Destinations.SCHEDULE.name)
+                    } else {
+                        loginViewModel.showGIF()
+                    }
                 }
             ),
             colors = OutlinedTextFieldDefaults.colors(

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.DatePicker
@@ -17,6 +16,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -33,6 +34,9 @@ import androidx.compose.ui.window.Popup
 import androidx.navigation.NavController
 import com.example.schedulemeet.Destinations
 import com.example.schedulemeet.SummaryData
+import com.example.schedulemeet.ui.theme.inverseSurfaceLight
+import com.example.schedulemeet.ui.theme.primaryLight
+import com.example.schedulemeet.ui.theme.secondaryLight
 import java.text.SimpleDateFormat
 import java.time.DayOfWeek
 import java.time.LocalDate
@@ -129,7 +133,14 @@ fun DatePickerDocked(
             },
             modifier = modifier
                 .height(64.dp)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedTextColor =   primaryLight,
+                unfocusedTextColor = primaryLight,
+                focusedBorderColor = secondaryLight,
+                focusedLabelColor = secondaryLight,
+                unfocusedLabelColor = inverseSurfaceLight,
+            )
         )
 
         if (showDatePicker) {

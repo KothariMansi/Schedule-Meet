@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.schedulemeet.presentation.front.FrontPageScreen
 import com.example.schedulemeet.presentation.login.LoginScreen
 import com.example.schedulemeet.presentation.schedule.ScheduleScreen
 import com.example.schedulemeet.presentation.summary.SummaryScreen
@@ -41,14 +42,18 @@ class MainActivity : ComponentActivity() {
 enum class Destinations{
     LOGIN,
     SCHEDULE,
-    SUMMARY
+    SUMMARY,
+    START
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ScheduleMeetApp() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Destinations.LOGIN.name) {
+    NavHost(navController = navController, startDestination = Destinations.START.name) {
+        composable(Destinations.START.name){
+            FrontPageScreen(navController)
+        }
         composable(Destinations.LOGIN.name){
             LoginScreen(navController)
         }

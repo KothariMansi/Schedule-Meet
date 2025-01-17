@@ -11,7 +11,7 @@ fun GIFsSelection(option: Int, onDismiss:()-> Unit, onConfirm:() -> Unit) {
         1 -> {
             PopUpDialog(
                 context = context,
-                message = "Exams",
+                message = "Exams yaar",
                 image = R.drawable.sad,
                 onConfirm = {  }) {
                 onDismiss()
@@ -20,7 +20,7 @@ fun GIFsSelection(option: Int, onDismiss:()-> Unit, onConfirm:() -> Unit) {
         2 -> {
             PopUpDialog(
                 context = context,
-                message = "No Sunday",
+                message = "No Sunday. You'll be busy.",
                 image = R.drawable.sad2,
                 onConfirm = {}) {
                 onDismiss()
